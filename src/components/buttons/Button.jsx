@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function Button({ title, onClick, className, icon }) {
+export default function Button({ title, onClick, className, icon, type }) {
   return (
     <button
+      type={type}
       onClick={onClick}
       className={` bg-primary group relative overflow-hidden  border-2 border-primary md:h-10 h-6  text-white hover:text-primary flex justify-center items-center ${className}`}
     >
