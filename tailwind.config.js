@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         primary: "#8B4513",
       },
+      backgroundImage: {
+        gradient: "linear-gradient(90deg,#8B4513, #A0522D, #D2B48C, #F4A460)",
+      },
     },
   },
   plugins: [require("tailwindcss-textshadow")],

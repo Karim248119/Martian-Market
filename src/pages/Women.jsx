@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CategoryProducts } from "../APIs";
-import Nav from "../components/Nav";
+import Nav from "../components/navigator/Nav";
 import Grid from "../components/Grid";
 import Filter from "../components/Filter";
 

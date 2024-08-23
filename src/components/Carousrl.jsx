@@ -2,7 +2,7 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Card from "./Card";
+import SliderCard from "./cards/SliderCard";
 
 const settings = {
   dots: false,
@@ -37,7 +37,7 @@ const settings = {
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 2,
       },
     },
   ],
@@ -45,11 +45,11 @@ const settings = {
 
 const Carousel = ({ products }) => {
   return (
-    <div className="py-20 text-center w-full mx-auto bg-white text-black">
+    <div className=" md:p-5 p-3 text-center w-full mx-auto bg-white text-black">
       <Slider {...settings} arrows={false}>
         {products.map((product, i) => (
-          <div key={i} className="p-5">
-            <Card product={product} />
+          <div key={i} className="sm:p-5 p-1">
+            <SliderCard product={product} />
           </div>
         ))}
       </Slider>

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { CategoryProducts } from "../APIs";
-import Card from "../components/Card";
-import Nav from "../components/Nav";
 import Grid from "../components/Grid";
 import Filter from "../components/Filter";
+import Nav from "../components/navigator/Nav";
 
 const categories = [
   { id: 1, slug: "mens-shirts", name: "Shirts" },
@@ -56,7 +55,6 @@ export default function Men() {
   return (
     <div>
       <Nav dark={true} />
-
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}
