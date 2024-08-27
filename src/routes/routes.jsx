@@ -21,142 +21,149 @@ const PersonalInfo = lazy(() => import("../pages/Checkout/PersonalInfo"));
 const Shipping = lazy(() => import("../pages/Checkout/Shipping"));
 const Payment = lazy(() => import("../pages/Checkout/Payment"));
 const Success = lazy(() => import("../pages/Checkout/Success"));
+const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 
-const routes = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    errorElement: "Invalide Route",
-    children: [
-      {
-        path: "",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Home />
-          </Suspense>
-        ),
-      },
-      {
-        path: "all",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <All />
-          </Suspense>
-        ),
-      },
-      {
-        path: "men",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Men />
-          </Suspense>
-        ),
-      },
-      {
-        path: "women",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Women />
-          </Suspense>
-        ),
-      },
-      {
-        path: "electronics",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Electronics />
-          </Suspense>
-        ),
-      },
+const routes = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      errorElement: (
+        <Suspense fallback={<Loading />}>
+          <ErrorPage />
+        </Suspense>
+      ),
+      children: [
+        {
+          path: "",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Home />
+            </Suspense>
+          ),
+        },
+        {
+          path: "all",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <All />
+            </Suspense>
+          ),
+        },
+        {
+          path: "men",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Men />
+            </Suspense>
+          ),
+        },
+        {
+          path: "women",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Women />
+            </Suspense>
+          ),
+        },
+        {
+          path: "electronics",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Electronics />
+            </Suspense>
+          ),
+        },
 
-      {
-        path: "cart",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Cart />
-          </Suspense>
-        ),
-      },
-      {
-        path: "search",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Search />
-          </Suspense>
-        ),
-      },
-      {
-        path: "product-details",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <ProductDetails />
-          </Suspense>
-        ),
-      },
-      {
-        path: "personalInfo",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <PersonalInfo />
-          </Suspense>
-        ),
-      },
-      {
-        path: "shipping",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Shipping />
-          </Suspense>
-        ),
-      },
-      {
-        path: "payment",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Payment />
-          </Suspense>
-        ),
-      },
-      {
-        path: "success",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Success />
-          </Suspense>
-        ),
-      },
-    ],
-  },
-  {
-    path: "/auth",
-    children: [
-      {
-        path: "login",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Login />
-          </Suspense>
-        ),
-      },
-      {
-        path: "signup",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Signup />
-          </Suspense>
-        ),
-      },
-      {
-        path: "profile",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Profile />
-          </Suspense>
-        ),
-      },
-    ],
-  },
-  {},
-]);
+        {
+          path: "cart",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Cart />
+            </Suspense>
+          ),
+        },
+        {
+          path: "search",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Search />
+            </Suspense>
+          ),
+        },
+        {
+          path: "product-details",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <ProductDetails />
+            </Suspense>
+          ),
+        },
+        {
+          path: "personalInfo",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <PersonalInfo />
+            </Suspense>
+          ),
+        },
+        {
+          path: "shipping",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Shipping />
+            </Suspense>
+          ),
+        },
+        {
+          path: "payment",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Payment />
+            </Suspense>
+          ),
+        },
+        {
+          path: "success",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Success />
+            </Suspense>
+          ),
+        },
+      ],
+    },
+    {
+      path: "/auth",
+      children: [
+        {
+          path: "login",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Login />
+            </Suspense>
+          ),
+        },
+        {
+          path: "signup",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Signup />
+            </Suspense>
+          ),
+        },
+        {
+          path: "profile",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Profile />
+            </Suspense>
+          ),
+        },
+      ],
+    },
+  ],
+  { basename: "/Martian-Market" }
+);
 
 export default routes;
