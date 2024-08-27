@@ -8,6 +8,7 @@ import Button from "../../components/buttons/Button";
 import { FaEnvelope, FaUser } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { PiUserCircleCheckThin } from "react-icons/pi";
+import { IMGS } from "../../utilities/Imgs";
 
 function Profile() {
   const { user, loading } = useContext(AuthContext);
@@ -38,8 +39,7 @@ function Profile() {
       <div
         className="hidden md:flex md:w-1/2 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://images.pexels.com/photos/5585862/pexels-photo-5585862.jpeg)",
+          backgroundImage: `url(${IMGS.profile})`,
         }}
       />
 

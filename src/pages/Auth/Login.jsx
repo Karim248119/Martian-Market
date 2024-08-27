@@ -5,6 +5,8 @@ import Joi from "joi";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import { toast } from "react-toastify";
+import { IMGS } from "../../utilities/Imgs";
+
 const schema = Joi.object({
   email: Joi.string()
     .email({
@@ -64,15 +66,10 @@ export default function Login() {
       <div
         className="hidden md:flex md:w-1/2 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://images.pexels.com/photos/5585858/pexels-photo-5585858.jpeg)",
+          backgroundImage: `url(${IMGS.login})`,
         }}
       >
-        <img
-          src="./assets/LOGO.png"
-          className="w-24 h-12 mt-5 ml-5"
-          alt="Logo"
-        />
+        <img src={IMGS.darkLogo} className="w-24 h-12 mt-5 ml-5" alt="Logo" />
       </div>
 
       <div className="w-full md:w-1/2 flex items-center justify-center bg-white">

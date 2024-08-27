@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import HomeCard from "../../components/cards/HomeCard";
 import { CategoryProducts } from "../../APIs";
 import { motion } from "framer-motion";
+import { IMGS } from "../../utilities/Imgs";
 
 export default function Categories() {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ export default function Categories() {
             onClick={() => {
               navigate(CARDS[0].nav);
             }}
-            bg="bg-[url('./assets/imgs/women.png')] "
+            bg={IMGS.women}
             x={-100}
           />
 
@@ -59,7 +60,7 @@ export default function Categories() {
             onClick={() => {
               navigate(CARDS[1].nav);
             }}
-            bg="bg-[url('./assets/imgs/men.png')] "
+            bg={IMGS.men}
             x={-100}
           />
         </div>
@@ -70,7 +71,7 @@ export default function Categories() {
           onClick={() => {
             navigate(CARDS[2].nav);
           }}
-          bg="bg-[url('https://images.pexels.com/photos/1156684/pexels-photo-1156684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] "
+          bg={IMGS.electronics}
           x={100}
         />
       </div>

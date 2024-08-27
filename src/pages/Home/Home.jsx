@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import Comments from "./Comments";
 import { motion } from "framer-motion";
 import Categories from "./Caregories";
+import { IMGS } from "../../utilities/Imgs";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -25,26 +26,7 @@ export default function Home() {
     };
     fetchProducts();
   }, []);
-  const CARDS = [
-    {
-      id: 1,
-      title: "For Women",
-      text: " Celebrate Your Unique Beauty with Products Designed to Empower,Inspire, and Elevate Every Woman's Style.",
-      nav: "/women",
-    },
-    {
-      id: 2,
-      title: "For Men",
-      text: "Discover the Power of Self-Expression with Products that Help Men Unleash TheirInner Strength and Confidence.",
-      nav: "/men",
-    },
-    {
-      id: 3,
-      title: "Electronics",
-      text: "Explore the latest in technology and innovation with our curated selection of electronics.",
-      nav: "/electronics",
-    },
-  ];
+
   return (
     <div>
       <div className="h-screen w-full relative">
@@ -88,7 +70,7 @@ export default function Home() {
           </div>
           <button className="flex justify-center items-center md:text-base text-xs absolute bottom-10 left-1/2 -translate-x-1/2 ">
             SCROLL DOWN
-            <img src="./assets/imgs/down.gif" className="h-5 w-5" />
+            <img src={IMGS.scroll} className="h-5 w-5" />
           </button>
         </div>
       </div>

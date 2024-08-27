@@ -13,6 +13,7 @@ import { RiSearchFill } from "react-icons/ri";
 import NavLink from "./NavLink";
 import { AuthContext } from "../../context/AuthContext";
 import { HiUser } from "react-icons/hi2";
+import { IMGS } from "../../utilities/Imgs";
 
 export default function Nav({ dark, menuBtn, toggleDrawer, className }) {
   const { loggedIn } = useContext(AuthContext);
@@ -29,7 +30,7 @@ export default function Nav({ dark, menuBtn, toggleDrawer, className }) {
         className="uppercase md:text-3xl text-xl font-serif"
       >
         <img
-          src={dark ? "./assets/DLOGO.png" : "./assets/LOGO.png"}
+          src={dark ? IMGS.darkLogo : IMGS.logo}
           className="sm:w-24 sm:h-12 w-14 h-7"
           alt="Logo"
         />

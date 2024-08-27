@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { IMGS } from "../../utilities/Imgs";
 
 const schema = Joi.object({
   name: Joi.string().alphanum().min(3).max(30).required(),
@@ -198,15 +199,10 @@ export default function Signup() {
       <div
         className="hidden md:flex justify-end md:w-1/2 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url(https://images.pexels.com/photos/5585859/pexels-photo-5585859.jpeg)",
+          backgroundImage: `url(${IMGS.signup})`,
         }}
       >
-        <img
-          src="./assets/LOGO.png"
-          className="w-24 h-12 mt-5 mr-5"
-          alt="Logo"
-        />
+        <img src={IMGS.logo} className="w-24 h-12 mt-5 mr-5" alt="Logo" />
       </div>
     </div>
   );
