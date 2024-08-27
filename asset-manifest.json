@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Martian-Market/static/css/main.dab79535.css",
-    "main.js": "/Martian-Market/static/js/main.4394850a.js",
+    "main.js": "/Martian-Market/static/js/main.cf8c223f.js",
     "static/js/834.fe2b2121.chunk.js": "/Martian-Market/static/js/834.fe2b2121.chunk.js",
     "static/js/537.83df4ea4.chunk.js": "/Martian-Market/static/js/537.83df4ea4.chunk.js",
     "static/js/180.8ad5d62a.chunk.js": "/Martian-Market/static/js/180.8ad5d62a.chunk.js",
     "static/js/453.b9d64ac4.chunk.js": "/Martian-Market/static/js/453.b9d64ac4.chunk.js",
-    "static/css/216.fe4c2b74.chunk.css": "/Martian-Market/static/css/216.fe4c2b74.chunk.css",
-    "static/js/216.1f7da48c.chunk.js": "/Martian-Market/static/js/216.1f7da48c.chunk.js",
+    "static/css/458.889c9e5c.chunk.css": "/Martian-Market/static/css/458.889c9e5c.chunk.css",
+    "static/js/458.abc856d2.chunk.js": "/Martian-Market/static/js/458.abc856d2.chunk.js",
     "static/js/487.765b43ed.chunk.js": "/Martian-Market/static/js/487.765b43ed.chunk.js",
     "static/js/976.3caf47e0.chunk.js": "/Martian-Market/static/js/976.3caf47e0.chunk.js",
     "static/js/190.246062bc.chunk.js": "/Martian-Market/static/js/190.246062bc.chunk.js",
@@ -46,13 +46,13 @@
     "static/media/slick.woff": "/Martian-Market/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Martian-Market/index.html",
     "main.dab79535.css.map": "/Martian-Market/static/css/main.dab79535.css.map",
-    "main.4394850a.js.map": "/Martian-Market/static/js/main.4394850a.js.map",
+    "main.cf8c223f.js.map": "/Martian-Market/static/js/main.cf8c223f.js.map",
     "834.fe2b2121.chunk.js.map": "/Martian-Market/static/js/834.fe2b2121.chunk.js.map",
     "537.83df4ea4.chunk.js.map": "/Martian-Market/static/js/537.83df4ea4.chunk.js.map",
     "180.8ad5d62a.chunk.js.map": "/Martian-Market/static/js/180.8ad5d62a.chunk.js.map",
     "453.b9d64ac4.chunk.js.map": "/Martian-Market/static/js/453.b9d64ac4.chunk.js.map",
-    "216.fe4c2b74.chunk.css.map": "/Martian-Market/static/css/216.fe4c2b74.chunk.css.map",
-    "216.1f7da48c.chunk.js.map": "/Martian-Market/static/js/216.1f7da48c.chunk.js.map",
+    "458.889c9e5c.chunk.css.map": "/Martian-Market/static/css/458.889c9e5c.chunk.css.map",
+    "458.abc856d2.chunk.js.map": "/Martian-Market/static/js/458.abc856d2.chunk.js.map",
     "487.765b43ed.chunk.js.map": "/Martian-Market/static/js/487.765b43ed.chunk.js.map",
     "976.3caf47e0.chunk.js.map": "/Martian-Market/static/js/976.3caf47e0.chunk.js.map",
     "190.246062bc.chunk.js.map": "/Martian-Market/static/js/190.246062bc.chunk.js.map",
@@ -77,6 +77,6 @@
   },
   "entrypoints": [
     "static/css/main.dab79535.css",
-    "static/js/main.4394850a.js"
+    "static/js/main.cf8c223f.js"
   ]
 }
