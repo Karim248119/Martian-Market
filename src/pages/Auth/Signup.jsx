@@ -203,7 +203,7 @@ export default function Signup() {
         }}
       >
         <img
-          src="../assets/LOGO.png"
+          src="./assets/LOGO.png"
           className="w-24 h-12 mt-5 mr-5"
           alt="Logo"
         />

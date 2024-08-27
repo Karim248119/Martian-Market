@@ -44,7 +44,10 @@ export default function Footer() {
           <h3 className="text-white md:text-xl text-sm font-semibold">
             About Us
           </h3>
-          <p>We are a team of passionate individuals who are dedicated</p>
+          <p>
+            We are a team of passionate individuals who are dedicated to
+            providing the best shopping experience for our customers.
+          </p>
         </div>
       </div>
       <p className=" text-center pb-5 md:text-lg text-sm">
