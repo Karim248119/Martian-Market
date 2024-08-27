@@ -2,6 +2,7 @@ import darkLogo from "../assets/DLOGO.png";
 import logo from "../assets/LOGO.png";
 import loading from "../assets/imgs/loading.gif";
 import scroll from "../assets/imgs/down.gif";
+import home from "../assets/imgs/home.png";
 import men from "../assets/imgs/men.png";
 import women from "../assets/imgs/women.png";
 import profile from "../assets/imgs/profile.jpeg";
@@ -14,6 +15,7 @@ export const IMGS = {
   darkLogo,
   loading,
   scroll,
+  home,
   men,
   women,
   profile,

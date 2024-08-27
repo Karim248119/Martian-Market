@@ -30,7 +30,12 @@ export default function Home() {
   return (
     <div>
       <div className="h-screen w-full relative">
-        <div className="fixed -z-10 w-full h-full bg-[url('./assets/imgs/home.png')] bg-cover bg-center" />
+        <div
+          className="fixed -z-10 w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${IMGS.home})`,
+          }}
+        />
         <div className="w-full md:h-24 h-16 absolute">
           <Nav dark={false} />
         </div>

@@ -32,7 +32,7 @@ export default function Slider() {
           navigate("/all");
         }}
         title="View More"
-        className="md:w-32 md:ml-5 w-20 ml-3"
+        className="md:w-32 md:ml-5 w-24 ml-3"
         icon={<FaArrowRightLong />}
       />
     </section>
