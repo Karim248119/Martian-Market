@@ -32,7 +32,7 @@ export default function Cart() {
     <div>
       <Nav dark={true} />
       <div className="flex md:flex-row flex-col gap-20">
-        <div className="flex flex-col md:gap-10 gap-5 md:w-2/3 md:p-10 p-2 pb-40 md:pb-10">
+        <div className="flex flex-col md:gap-10 gap-5 md:w-2/3 md:p-10 p-2 pb-48 md:pb-10">
           {cart.map((item, index) => (
             <div
               key={index}
