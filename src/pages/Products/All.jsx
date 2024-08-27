@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { AllProducts, CategoryList, CategoryProducts } from "../APIs";
-import Grid from "../components/Grid";
-import Loading from "../components/Loading";
-import Drawer from "../components/Drawer";
+import { AllProducts, CategoryList, CategoryProducts } from "../../APIs";
+import Grid from "../../components/Grid";
+import Loading from "../../components/Loading";
+import Drawer from "../../components/Drawer";
 import { useNavigate } from "react-router-dom";
-import Nav from "../components/navigator/Nav";
+import Nav from "../../components/navigator/Nav";
 
 function All() {
   const [products, setProducts] = useState([]);

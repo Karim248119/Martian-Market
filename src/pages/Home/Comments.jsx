@@ -8,26 +8,24 @@ import { AiFillLike } from "react-icons/ai";
 export default function Comments() {
   const [comments, setComments] = useState([]);
   const [newcomments, setNewComments] = useState([]);
+  console.log(newcomments);
 
   const fetchComments = async () => {
     try {
       const data = await getComments();
-      setComments(data);
+      const updatedComments = data.map((comment) => ({
+        ...comment,
+        userImg: `https://randomuser.me/api/portraits/men/${comment.id}.jpg`,
+      }));
+      setComments(updatedComments);
+      setNewComments(updatedComments);
     } catch (error) {
       console.log(error);
     }
   };
-  function addImageById() {
-    const updatedComments = comments.map((comment) => ({
-      ...comment,
-      userImg: `https://randomuser.me/api/portraits/men/${comment.id}.jpg`,
-    }));
-    setNewComments(updatedComments);
-    console.log(newcomments);
-  }
+
   useEffect(() => {
     fetchComments();
-    addImageById();
   }, []);
 
   const settings = {

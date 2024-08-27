@@ -8,14 +8,19 @@ import Loading from "../components/Loading";
 // const Layout = lazy(() => import("../pages/Auth/Layout/Layout"));
 const Login = lazy(() => import("../pages/Auth/Login"));
 const Signup = lazy(() => import("../pages/Auth/Signup"));
+const Profile = lazy(() => import("../pages/Auth/Profile"));
 const Home = lazy(() => import("../pages/Home/Home"));
-const All = lazy(() => import("../pages/All"));
-const Men = lazy(() => import("../pages/Men"));
-const Women = lazy(() => import("../pages/Women"));
-const Electronics = lazy(() => import("../pages/Electronics"));
+const All = lazy(() => import("../pages/Products/All"));
+const Men = lazy(() => import("../pages/Products/Men"));
+const Women = lazy(() => import("../pages/Products/Women"));
+const Electronics = lazy(() => import("../pages/Products/Electronics"));
 const Cart = lazy(() => import("../pages/Cart"));
 const Search = lazy(() => import("../pages/Search"));
 const ProductDetails = lazy(() => import("../pages/ProductDetails"));
+const PersonalInfo = lazy(() => import("../pages/Checkout/PersonalInfo"));
+const Shipping = lazy(() => import("../pages/Checkout/Shipping"));
+const Payment = lazy(() => import("../pages/Checkout/Payment"));
+const Success = lazy(() => import("../pages/Checkout/Success"));
 
 const routes = createBrowserRouter([
   {
@@ -88,6 +93,38 @@ const routes = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: "personalInfo",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <PersonalInfo />
+          </Suspense>
+        ),
+      },
+      {
+        path: "shipping",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Shipping />
+          </Suspense>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Payment />
+          </Suspense>
+        ),
+      },
+      {
+        path: "success",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Success />
+          </Suspense>
+        ),
+      },
     ],
   },
   {
@@ -109,8 +146,17 @@ const routes = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: "profile",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Profile />
+          </Suspense>
+        ),
+      },
     ],
   },
+  {},
 ]);
 
 export default routes;

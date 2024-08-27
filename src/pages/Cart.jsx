@@ -1,13 +1,17 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import Nav from "../components/navigator/Nav";
 import Button from "../components/buttons/Button";
 import { CiTrash } from "react-icons/ci";
 import WhiteBtn from "../components/buttons/WhiteBtn";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
+  const [loginMsg, setLoginMsg] = useState(true);
   const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
     useContext(CartContext);
+  const { loggedIn } = useContext(AuthContext);
   const totalQuantity = useMemo(() => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   }, [cart]);
@@ -15,6 +19,14 @@ export default function Cart() {
   const totalPrice = useMemo(() => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   }, [cart]);
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    if (loggedIn) {
+      navigate("/personalInfo");
+    } else {
+      setLoginMsg(false);
+    }
+  };
 
   return (
     <div>
@@ -78,12 +90,38 @@ export default function Cart() {
             <p>${totalPrice}</p>
           </div>
 
-          <Button title="CHECKOUT" className="md:flex hidden" />
+          <Button
+            title="CHECKOUT"
+            className="md:flex hidden"
+            onClick={handleCheckout}
+          />
           <WhiteBtn
             title="CHECKOUT"
-            className="md:hidden block self-center py-1"
+            className="md:hidden block self-center py-1 w-full"
             removeIcon={true}
+            onClick={handleCheckout}
           />
+          <div
+            className={`flex gap-1 text-[10px] md:text-base m-auto ${
+              loginMsg && " hidden"
+            }`}
+          >
+            <span>You need to</span>
+            <button
+              className="font-serif font-semibold hover:text-primary"
+              onClick={() => navigate("/auth/signup")}
+            >
+              Register
+            </button>
+            <span> or</span>
+            <button
+              className="font-serif font-semibold hover:text-primary"
+              onClick={() => navigate("/auth/login")}
+            >
+              Login
+            </button>
+            <span>to continue</span>
+          </div>
         </div>
       </div>
     </div>

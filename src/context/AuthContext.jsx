@@ -1,42 +1,50 @@
-import { createContext, useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { createContext, useState, useEffect } from "react";
+import { auth, db } from "../pages/Auth/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 
-export default function AuthProvider({ children }) {
-  //state
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [loggedIn, setIsLoggedIn] = useState(true);
 
-  //hooks
-
-  const signUp = useCallback(
-    (user, navigate) => {
-      localStorage.setItem("auth", JSON.stringify(user));
-      setUser(user);
-      navigate("/");
-    },
-    [user]
-  );
-
-  const logOut = useCallback(
-    (navigate) => {
-      localStorage.removeItem("auth");
-      setUser(null);
-      navigate("/");
-    },
-    [user]
-  );
   useEffect(() => {
-    const authUser = localStorage.getItem("auth");
-    if (authUser) {
-      setUser(JSON.parse(authUser));
-    }
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsLoggedIn(!!user);
+    });
+    return () => unsubscribe();
   }, []);
 
-  const value = {
-    user,
-    signUp,
-    logOut,
-  };
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        try {
+          const docRef = doc(db, "Users", currentUser.uid);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            setUser(docSnap.data());
+          } else {
+            setUser(null);
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error.message);
+          setUser(null);
+        }
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, [loggedIn]);
+
+  return (
+    <AuthContext.Provider value={{ user, loading, loggedIn }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+export default AuthProvider;

@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { CategoryProducts } from "../APIs";
-import Nav from "../components/navigator/Nav";
-import Grid from "../components/Grid";
-import Filter from "../components/Filter";
+import { CategoryProducts } from "../../APIs";
+import Nav from "../../components/navigator/Nav";
+import Grid from "../../components/Grid";
+import Filter from "../../components/Filter";
 
 const categories = [
-  { id: 1, slug: "tops", name: "tops" },
-  { id: 2, slug: "womens-dresses", name: "dresses" },
-  { id: 3, slug: "womens-jewellery", name: "jewellery" },
-  { id: 4, slug: "womens-shoes", name: "shoes" },
-  { id: 5, slug: "womens-watches", name: "watches" },
-  { id: 6, slug: "beauty", name: "make-up" },
+  { id: 1, slug: "smartphones", name: "smartphones" },
+  { id: 2, slug: "laptops", name: "laptops" },
+  { id: 3, slug: "tablets", name: "tablets" },
+  { id: 4, slug: "mobile-accessories", name: "mobile accessories" },
 ];
 
-export default function Women() {
+export default function Electronics() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState("tops");
+  const [selectedCategory, setSelectedCategory] = useState("smartphones");
 
   const FilterProducts = async (cat) => {
     try {
@@ -35,7 +33,7 @@ export default function Women() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await CategoryProducts("tops");
+        const data = await CategoryProducts("smartphones");
         setProducts(data);
         setLoading(false);
       } catch (err) {

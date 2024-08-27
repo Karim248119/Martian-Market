@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import Button from "../../components/buttons/Button";
 import { Link, useNavigate } from "react-router-dom";
 import Joi from "joi";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "./firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const schema = Joi.object({
   name: Joi.string().alphanum().min(3).max(30).required(),
@@ -46,13 +50,33 @@ export default function Signup() {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Password:", password);
-    navigate("/");
+    if (validateForm()) {
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        const user = auth.currentUser;
+        console.log(user);
+        if (user) {
+          await setDoc(doc(db, "Users", user.uid), {
+            email: user.email,
+            name: name,
+            photo: "",
+          });
+        }
+        console.log("User Registered Successfully!!");
+        toast.success("User Registered Successfully!!", {
+          position: "top-center",
+        });
+        navigate("/");
+      } catch (error) {
+        error.message === "Firebase: Error (auth/email-already-in-use)."
+          ? toast.error("Email Already In Use", {
+              position: "bottom-center",
+            })
+          : console.log(error.message);
+      }
+    }
   };
 
   return (
@@ -157,7 +181,7 @@ export default function Signup() {
             </div>
             <Button
               title="SIGN UP"
-              className="w-full py-2 px-4 bg-primary text-white font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="w-full py-3 px-4 bg-primary text-white font-semibold shadow-sm focus:outline-none "
             />
           </form>
           <div className="mt-4 text-center capitalize text-black/60 font-serif sm:text-sm text-xs flex justify-center items-center gap-1">

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Button from "../../components/buttons/Button";
 import { Link, useNavigate } from "react-router-dom";
 import Joi from "joi";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase";
+import { toast } from "react-toastify";
 const schema = Joi.object({
   email: Joi.string()
     .email({
@@ -39,13 +42,21 @@ export default function Login() {
     return true;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
-    //  login logic
-    console.log("Email:", email);
-    console.log("Password:", password);
-    navigate("/");
+    if (validateForm()) {
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        toast.success("logged in Successfully", {
+          position: "top-center",
+        });
+        navigate("/");
+      } catch (error) {
+        toast.error("Invalid E-mail or Password", {
+          position: "top-center",
+        });
+      }
+    }
   };
 
   return (
@@ -83,9 +94,9 @@ export default function Login() {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`mt-1 block w-full md:px-3 md:py-2 p-1 md:text-base text-xs border ${
-                  errors.email ? "border-red-500" : "border-black"
-                } shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:sm:text-sm text-[8px]`}
+                className={`mt-1 block w-full md:px-3 md:py-2 p-1 md:text-base text-xs border 
+                ${errors.email ? "border-red-500" : "border-black"}
+                shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:sm:text-sm text-[8px]`}
               />
               {errors.email && (
                 <p className="mt-2 sm:text-sm text-[8px] text-red-600">
@@ -118,7 +129,7 @@ export default function Login() {
             </div>
             <Button
               title="LOG IN"
-              className="w-full py-2 px-4 bg-primary text-white font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="w-full py-3 px-4 bg-primary text-white font-semibold shadow-sm focus:outline-none "
             />
           </form>
           <div className="mt-4 text-center capitalize text-black/60 font-serif sm:text-sm text-xs flex justify-center items-center gap-1">
