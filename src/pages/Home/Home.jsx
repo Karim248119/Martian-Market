@@ -88,7 +88,7 @@ export default function Home() {
           </div>
           <button className="flex justify-center items-center md:text-base text-xs absolute bottom-10 left-1/2 -translate-x-1/2 ">
             SCROLL DOWN
-            <img src="../assets/imgs/down.gif" className="h-5 w-5" />
+            <img src="./assets/imgs/down.gif" className="h-5 w-5" />
           </button>
         </div>
       </div>

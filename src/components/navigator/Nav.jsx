@@ -11,8 +11,6 @@ import {
 } from "react-icons/pi";
 import { RiSearchFill } from "react-icons/ri";
 import NavLink from "./NavLink";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../pages/Auth/firebase";
 import { AuthContext } from "../../context/AuthContext";
 import { HiUser } from "react-icons/hi2";
 
@@ -31,7 +29,7 @@ export default function Nav({ dark, menuBtn, toggleDrawer, className }) {
         className="uppercase md:text-3xl text-xl font-serif"
       >
         <img
-          src={dark ? "../assets/DLOGO.png" : "../assets/LOGO.png"}
+          src={dark ? "./assets/DLOGO.png" : "./assets/LOGO.png"}
           className="sm:w-24 sm:h-12 w-14 h-7"
           alt="Logo"
         />
