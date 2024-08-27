@@ -6,6 +6,7 @@ import SliderCard from "./cards/SliderCard";
 
 const settings = {
   dots: false,
+  arrows: false,
   infinite: true,
   slidesToShow: 5,
   slidesToScroll: 1,
@@ -14,7 +15,6 @@ const settings = {
   speed: 2000,
   autoplaySpeed: 2000,
   cssEase: "linear",
-
   responsive: [
     {
       breakpoint: 1024,
@@ -23,15 +23,21 @@ const settings = {
       },
     },
     {
-      breakpoint: 768,
+      breakpoint: 992,
       settings: {
         slidesToShow: 4,
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
         slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 4,
       },
     },
     {

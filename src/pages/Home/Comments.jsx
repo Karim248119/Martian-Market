@@ -38,6 +38,7 @@ export default function Comments() {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -48,10 +49,9 @@ export default function Comments() {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
-
       {
         breakpoint: 480,
         settings: {
@@ -70,19 +70,18 @@ export default function Comments() {
         {newcomments.map((comment, index) => (
           <div key={index}>
             <div className="bg-primary/10 p-5 md:w-[30vw] w-[90vw] h-[20vh] m-auto flex flex-col justify-evenly relative">
-              <div className=" flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <img
                   className="md:w-14 w-10 aspect-square rounded-full"
                   src={comment.userImg}
+                  alt={`Profile of ${comment.user.username}`}
                 />
-                <h4 className=" uppercase font-extralight md:text-xs text-[8px] font-serif text-primary">
+                <h4 className="uppercase font-extralight md:text-xs text-[8px] font-serif text-primary">
                   {comment.user.username}
                 </h4>
               </div>
-              <p className=" self-center md:text-xl text-sm">
-                "{comment.body}"
-              </p>
-              <div className="absolute md:bottom-3 bottom-2 right-3   md:text-xs text-[10px] flex justify-center items-center gap-1 text-primary">
+              <p className="self-center md:text-xl text-sm">"{comment.body}"</p>
+              <div className="absolute md:bottom-3 bottom-2 right-3 md:text-xs text-[10px] flex justify-center items-center gap-1 text-primary">
                 <AiFillLike />
                 <span>{comment.likes}</span>
               </div>

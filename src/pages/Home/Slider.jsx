@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Carousel from "../../components/Carousrl";
+import Carousel from "../../components/Carousel";
 import Button from "../../components/buttons/Button";
 import { AllProducts } from "../../APIs";
 import { FaArrowRightLong } from "react-icons/fa6";
