@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { CiUser } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -14,10 +14,15 @@ import NavLink from "./NavLink";
 import { AuthContext } from "../../context/AuthContext";
 import { HiUser } from "react-icons/hi2";
 import { IMGS } from "../../utilities/Imgs";
+import { CartContext } from "../../context/CartContext";
 
 export default function Nav({ dark, menuBtn, toggleDrawer, className }) {
   const { loggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { cart } = useContext(CartContext);
+  const quantity = useMemo(() => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  }, [cart]);
 
   return (
     <nav
@@ -41,11 +46,17 @@ export default function Nav({ dark, menuBtn, toggleDrawer, className }) {
           icon={<CiSearch />}
           activeIcon={<RiSearchFill />}
         />
-        <NavLink
-          to="/cart"
-          icon={<PiShoppingCartSimpleThin />}
-          activeIcon={<PiShoppingCartSimpleFill />}
-        />
+        <div className=" relative">
+          <span className=" md:text-[6px] text-[5px] absolute md:h-3 md:w-3 h-2 w-2 flex justify-center items-center text-white left-1/2 -translate-x-1/2 md:-top-2 -top-1 rounded-full bg-primary ">
+            {quantity}
+          </span>
+          <NavLink
+            to="/cart"
+            icon={<PiShoppingCartSimpleThin />}
+            activeIcon={<PiShoppingCartSimpleFill />}
+          />
+        </div>
+
         <NavLink
           to={loggedIn ? "/auth/profile" : "/auth/login"}
           icon={<CiUser />}
